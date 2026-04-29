@@ -26,6 +26,10 @@ public class PlayerActions : MonoBehaviour
                 hitLayer))
         {
             Debug.Log("Hit!");
+            if (hit.collider.gameObject.TryGetComponent<Enemy>(out var enemy))
+            {
+                enemy.GetHit();
+            }
         }
         else
         {
