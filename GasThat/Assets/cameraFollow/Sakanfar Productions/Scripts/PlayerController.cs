@@ -12,6 +12,7 @@ namespace PlayerController // Or any other appropriate namespace
         [SerializeField] private float runSpeed = 6f;
         [SerializeField] private float jumpHeight = 2f;
         [SerializeField] private float gravity = -9.81f;
+        [SerializeField] private float gravityStrength = 1;
 
         [Header("Ground Check")]
         [SerializeField] private Transform groundCheck;
@@ -123,17 +124,17 @@ namespace PlayerController // Or any other appropriate namespace
             // Handle jumping
             // if (Input.GetKeyDown(jumpKey) && isGrounded)
             // {
-            //     velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            //     velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity * gravityStrength);
             // }
 
             // Apply gravity
-            velocity.y += gravity * Time.deltaTime;
+            velocity.y += gravity * gravityStrength * Time.deltaTime;
         }
         
         public void OnJump(InputAction.CallbackContext context)
         {
-            if (context.performed)
-                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            if (context.performed && isGrounded)
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity * gravityStrength);
         }
 
         // Public methods for external access

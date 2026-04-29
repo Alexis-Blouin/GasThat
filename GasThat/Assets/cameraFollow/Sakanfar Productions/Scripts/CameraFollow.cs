@@ -69,7 +69,7 @@ namespace FollowCamera // Or any other appropriate namespace
                 else
                 {
                     // Try to find PlayerController in scene
-                    PlayerController.PlayerController playerControllerComponent = FindFirstObjectByType<PlayerController.PlayerController>();
+                    PlayerController.PlayerController playerControllerComponent = FindAnyObjectByType<PlayerController.PlayerController>();
                     if (playerControllerComponent != null)
                         playerBody = playerControllerComponent.transform;
                 }
@@ -81,7 +81,7 @@ namespace FollowCamera // Or any other appropriate namespace
                 if (playerBody != null)
                     playerController = playerBody.GetComponent<PlayerController.PlayerController>();
                 else
-                    playerController = FindFirstObjectByType<PlayerController.PlayerController>();
+                    playerController = FindAnyObjectByType<PlayerController.PlayerController>();
             }
             // Initialize rotation values
             if (playerBody != null)
