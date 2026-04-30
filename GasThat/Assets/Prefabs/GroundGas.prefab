@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6272771098990988421}
   - component: {fileID: 2056527867918317568}
   - component: {fileID: 1199765469083815715}
+  - component: {fileID: 8145916852525817336}
   m_Layer: 0
   m_Name: GroundGas
   m_TagString: Untagged
@@ -4836,3 +4837,17 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
+--- !u!114 &8145916852525817336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5040712696869412821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93bad2a1e4a214a49baf9612169dac15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GasCell
+  gridX: 0
+  gridY: 0

@@ -1819,6 +1819,58 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 869135276}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &985431924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 985431926}
+  - component: {fileID: 985431925}
+  m_Layer: 0
+  m_Name: GasGrid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &985431925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985431924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1f29d23c9081046a553778d017bc0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GasGrid
+  width: 400
+  height: 400
+  cellSize: 1
+  originPosition: {x: -48.52, y: 0, z: -52.89}
+  spreadRate: 0.05
+  dissipationRate: 0.02
+  spreadInterval: 0.5
+  gasCellPrefab: {fileID: 5040712696869412821, guid: 8fe0a4297a85bec4babc249f337ff0e1, type: 3}
+--- !u!4 &985431926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985431924}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -48.52, y: 0, z: -52.89}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1023188849
 GameObject:
   m_ObjectHideFlags: 0
@@ -2379,58 +2431,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266951464}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1347852849
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1347852851}
-  - component: {fileID: 1347852850}
-  m_Layer: 0
-  m_Name: GasGrid
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1347852850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1347852849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d1f29d23c9081046a553778d017bc0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GasGrid
-  width: 20
-  height: 20
-  cellSize: 1
-  originPosition: {x: 0, y: 0, z: 0}
-  spreadRate: 0.05
-  dissipationRate: 0.02
-  spreadInterval: 0.5
-  gasCellPrefab: {fileID: 5040712696869412821, guid: 8fe0a4297a85bec4babc249f337ff0e1, type: 3}
---- !u!4 &1347852851
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1347852849}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.40706, y: 0, z: -3.12459}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1421153212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3531,7 +3531,7 @@ PrefabInstance:
     - target: {fileID: 1180496878760301065, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
       propertyPath: gasGrid
       value: 
-      objectReference: {fileID: 1347852850}
+      objectReference: {fileID: 985431925}
     - target: {fileID: 1180496878760301065, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
       propertyPath: inHandWeapon
       value: 
@@ -3546,7 +3546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9184295736281231438, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.28
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 9184295736281231438, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3779,4 +3779,4 @@ SceneRoots:
   - {fileID: 172621766}
   - {fileID: 6972636084890105711}
   - {fileID: 6018331269876470249}
-  - {fileID: 1347852851}
+  - {fileID: 985431926}

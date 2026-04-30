@@ -34,7 +34,7 @@ public class Weapon : MonoBehaviour
 
     public void Shoot()
     {
-        Debug.Log("shoot my gun");
+        // Debug.Log("shoot my gun");
         _currentParticle = Instantiate(particle, barrelTip.position, barrelTip.rotation);
     }
 
