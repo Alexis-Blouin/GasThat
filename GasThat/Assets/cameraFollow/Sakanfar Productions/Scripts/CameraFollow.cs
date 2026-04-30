@@ -14,6 +14,7 @@ namespace FollowCamera // Or any other appropriate namespace
         [Header("Camera Constraints")]
         [SerializeField] private float minVerticalAngle = -90f;
         [SerializeField] private float maxVerticalAngle = 90f;
+        [SerializeField] private Vector3 positionOffset = Vector3.zero;
 
         [Header("Smoothing")]
         [SerializeField] private float smoothTime = 0.1f;
@@ -107,6 +108,8 @@ namespace FollowCamera // Or any other appropriate namespace
             HandleMouseLook();
             HandleZoom();
             HandleCameraShake();
+            
+            transform.localPosition += positionOffset;
         }
         private void HandleMouseLook()
         {

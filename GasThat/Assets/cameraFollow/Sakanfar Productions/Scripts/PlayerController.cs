@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 
 namespace PlayerController // Or any other appropriate namespace
 {
-    [RequireComponent(typeof(CharacterController))]
     public class PlayerController : MonoBehaviour
     {
         [Header("Movement Settings")]
@@ -28,7 +27,9 @@ namespace PlayerController // Or any other appropriate namespace
         [SerializeField] private KeyCode jumpKey = KeyCode.Space;
 
         // Components
-        private CharacterController controller;
+        // private CharacterController controller;
+        private CapsuleCollider col;
+        private Rigidbody rb;
 
         // Movement variables
         private Vector3 velocity;
@@ -44,14 +45,16 @@ namespace PlayerController // Or any other appropriate namespace
         void Start()
         {
             // Get required components
-            controller = GetComponent<CharacterController>();
+            col = GetComponent<CapsuleCollider>();
+            rb = GetComponent<Rigidbody>();
 
             // Create ground check if it doesn't exist
             if (groundCheck == null)
             {
                 GameObject groundCheckObj = new GameObject("GroundCheck");
                 groundCheckObj.transform.SetParent(transform);
-                groundCheckObj.transform.localPosition = new Vector3(0, -controller.height / 2, 0);
+                groundCheckObj.transform.localPosition = new Vector3(0, -col.height / 2, 0);
+                
                 groundCheck = groundCheckObj.transform;
             }
         }
@@ -61,36 +64,21 @@ namespace PlayerController // Or any other appropriate namespace
             HandleGroundCheck();
             HandleInput();
             HandleMovement();
-            HandleGravityAndJump();
+        }
 
-            // Apply movement to character controller
-            controller.Move(velocity * Time.deltaTime);
+        private void FixedUpdate()
+        {
+            rb.linearVelocity = new Vector3(velocity.x, rb.linearVelocity.y, velocity.z);
         }
 
         private void HandleGroundCheck()
         {
             // Check if player is grounded
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-            // Reset velocity when grounded
-            if (isGrounded && velocity.y < 0)
-            {
-                velocity.y = -2f; // Small negative value to keep grounded
-            }
         }
 
         private void HandleInput()
         {
-            // Get input
-            // float horizontal = Input.GetAxisRaw("Horizontal");
-            // float vertical = Input.GetAxisRaw("Vertical");
-
-            // Check if running
-            // isRunning = Input.GetKey(runKey);
-
-            // Create input vector
-            // Vector2 targetInputVector = new Vector2(horizontal, vertical).normalized;
-
             // Smooth input for better movement feel
             float smoothTime = targetInputVector.magnitude > 0 ? accelerationTime : decelerationTime;
             currentInputVector = Vector2.SmoothDamp(currentInputVector, targetInputVector, ref smoothInputVelocity, smoothTime);
@@ -102,7 +90,7 @@ namespace PlayerController // Or any other appropriate namespace
             currentSpeed = isRunning ? runSpeed : walkSpeed;
 
             // Calculate movement direction relative to player rotation
-            Vector3 moveDirection = transform.right * currentInputVector.x + transform.forward * currentInputVector.y;
+            var moveDirection = transform.right * currentInputVector.x + transform.forward * currentInputVector.y;
 
             // Apply movement
             velocity.x = moveDirection.x * currentSpeed;
@@ -118,23 +106,11 @@ namespace PlayerController // Or any other appropriate namespace
         {
             isRunning = context.performed;
         }
-
-        private void HandleGravityAndJump()
-        {
-            // Handle jumping
-            // if (Input.GetKeyDown(jumpKey) && isGrounded)
-            // {
-            //     velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity * gravityStrength);
-            // }
-
-            // Apply gravity
-            velocity.y += gravity * gravityStrength * Time.deltaTime;
-        }
         
         public void OnJump(InputAction.CallbackContext context)
         {
             if (context.performed && isGrounded)
-                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity * gravityStrength);
+                rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
         }
 
         // Public methods for external access

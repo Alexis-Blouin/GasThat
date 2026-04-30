@@ -2516,6 +2516,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541661713}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1577856707 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8168538025336085924, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
+  m_PrefabInstance: {fileID: 2142362112}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1577856716
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577856707}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &1605811446
 GameObject:
   m_ObjectHideFlags: 0
@@ -3328,7 +3360,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 5, y: 0.2, z: 5}
+    m_Scale: {x: 1, y: 0.2, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -13096,9 +13128,49 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2036618087941582490, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
+      propertyPath: positionOffset.y
+      value: 0.3935
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852756826053235632, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
+      propertyPath: jumpHeight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852756826053235632, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
+      propertyPath: groundMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 7636682918285912315, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7636682918285912315, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3935
+      objectReference: {fileID: 0}
+    - target: {fileID: 7636682918285912315, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7636682918285912315, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7636682918285912315, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7636682918285912315, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8168538025336085924, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
       propertyPath: m_Name
       value: player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020092657194032900, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9184295736281231438, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13140,10 +13212,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9020092657194032900, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8168538025336085924, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1577856716}
   m_SourcePrefab: {fileID: 100100000, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
