@@ -7,14 +7,19 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private LayerMask hitLayer;
     [SerializeField] private LayerMask groundLayer;
 
-    [SerializeField] private Weapon inHandWeapon;
+    private Weapon inHandWeapon;
+    [SerializeField] private GameObject[] weapons;
     
     [SerializeField] private GasGrid gasGrid;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        if (weapons.Length >= 1)
+        {
+            inHandWeapon = weapons[0].GetComponent<Weapon>();
+            weapons[0].SetActive(true);
+        }
     }
 
     // Update is called once per frame
@@ -52,6 +57,25 @@ public class PlayerActions : MonoBehaviour
         else if (context.canceled)
         {
             inHandWeapon.Release();
+        }
+    }
+
+    public void OnWeaponSwitch(InputAction.CallbackContext context)
+    {
+        if (context.performed && weapons.Length >= 2)
+        {
+            if (inHandWeapon == weapons[0].GetComponent<Weapon>())
+            {
+                inHandWeapon = weapons[1].GetComponent<Weapon>();
+                weapons[0].SetActive(false);
+                weapons[1].SetActive(true);
+            }
+            else
+            {
+                inHandWeapon = weapons[0].GetComponent<Weapon>();
+                weapons[0].SetActive(true);
+                weapons[1].SetActive(false);
+            }
         }
     }
 }

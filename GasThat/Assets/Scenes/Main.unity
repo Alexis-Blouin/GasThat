@@ -1086,38 +1086,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548735246}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &607385417
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 607385418}
-  m_Layer: 0
-  m_Name: WeaponHand
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &607385418
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 607385417}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.287, y: 0.16, z: 0.689}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2020715447}
-  m_Father: {fileID: 1577856715}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &722077520
 GameObject:
   m_ObjectHideFlags: 0
@@ -2379,58 +2347,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266951464}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1347852849
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1347852851}
-  - component: {fileID: 1347852850}
-  m_Layer: 0
-  m_Name: GasGrid
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1347852850
+--- !u!114 &1347852850 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 5340540859678664254, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
+  m_PrefabInstance: {fileID: 6558963096727553681}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1347852849}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d1f29d23c9081046a553778d017bc0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GasGrid
-  width: 20
-  height: 20
-  cellSize: 1
-  originPosition: {x: 0, y: 0, z: 0}
-  spreadRate: 0.05
-  dissipationRate: 0.02
-  spreadInterval: 0.5
-  gasCellPrefab: {fileID: 5040712696869412821, guid: 8fe0a4297a85bec4babc249f337ff0e1, type: 3}
---- !u!4 &1347852851
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1347852849}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.40706, y: 0, z: -3.12459}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1421153212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2600,11 +2527,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541661713}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1577856715 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9184295736281231438, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
-  m_PrefabInstance: {fileID: 2142362112}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1605811446
 GameObject:
   m_ObjectHideFlags: 0
@@ -3143,22 +3065,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
---- !u!114 &2020715446 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3049238644690762481, guid: 7fbb92416e196064891b034745afcab2, type: 3}
-  m_PrefabInstance: {fileID: 2902597558073315944}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39262c084c4d4fa42bc34dc69e8a71ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Weapon
---- !u!4 &2020715447 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3593783530332145749, guid: 7fbb92416e196064891b034745afcab2, type: 3}
-  m_PrefabInstance: {fileID: 2902597558073315944}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2028115529
 GameObject:
   m_ObjectHideFlags: 0
@@ -3532,13 +3438,9 @@ PrefabInstance:
       propertyPath: gasGrid
       value: 
       objectReference: {fileID: 1347852850}
-    - target: {fileID: 1180496878760301065, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
-      propertyPath: inHandWeapon
-      value: 
-      objectReference: {fileID: 2020715446}
-    - target: {fileID: 1180496878760301065, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
-      propertyPath: groundLayer.m_Bits
-      value: 64
+    - target: {fileID: 5061376621305171770, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8168538025336085924, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
       propertyPath: m_Name
@@ -3586,69 +3488,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 9184295736281231438, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 607385418}
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
---- !u!1001 &2902597558073315944
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 607385418}
-    m_Modifications:
-    - target: {fileID: 1551310019506992634, guid: 7fbb92416e196064891b034745afcab2, type: 3}
-      propertyPath: m_Name
-      value: Weapon
-      objectReference: {fileID: 0}
-    - target: {fileID: 3593783530332145749, guid: 7fbb92416e196064891b034745afcab2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.287
-      objectReference: {fileID: 0}
-    - target: {fileID: 3593783530332145749, guid: 7fbb92416e196064891b034745afcab2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 3593783530332145749, guid: 7fbb92416e196064891b034745afcab2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.689
-      objectReference: {fileID: 0}
-    - target: {fileID: 3593783530332145749, guid: 7fbb92416e196064891b034745afcab2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3593783530332145749, guid: 7fbb92416e196064891b034745afcab2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3593783530332145749, guid: 7fbb92416e196064891b034745afcab2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3593783530332145749, guid: 7fbb92416e196064891b034745afcab2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3593783530332145749, guid: 7fbb92416e196064891b034745afcab2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3593783530332145749, guid: 7fbb92416e196064891b034745afcab2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3593783530332145749, guid: 7fbb92416e196064891b034745afcab2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7fbb92416e196064891b034745afcab2, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
 --- !u!1001 &6018331269876470249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3706,6 +3548,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fe0a4297a85bec4babc249f337ff0e1, type: 3}
+--- !u!1001 &6558963096727553681
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6095628153357886094, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.40706
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095628153357886094, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095628153357886094, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.12459
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095628153357886094, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095628153357886094, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095628153357886094, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095628153357886094, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095628153357886094, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095628153357886094, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095628153357886094, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478462567988630315, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
+      propertyPath: m_Name
+      value: GasGrid
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
 --- !u!1001 &6972636084890105711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3779,4 +3678,4 @@ SceneRoots:
   - {fileID: 172621766}
   - {fileID: 6972636084890105711}
   - {fileID: 6018331269876470249}
-  - {fileID: 1347852851}
+  - {fileID: 6558963096727553681}

@@ -36,11 +36,12 @@ public class GasGrid : MonoBehaviour
         if (spreadTimer >= spreadInterval)
         {
             spreadTimer = 0f;
-            SpreadAndDissipate();
+            //Spread();
+            Dissipate();
         }
     }
 
-    void SpreadAndDissipate()
+    void Spread()
     {
         float[,] newValues = (float[,])gasValues.Clone();
 
@@ -48,9 +49,6 @@ public class GasGrid : MonoBehaviour
         for (int y = 0; y < height; y++)
         {
             if (gasValues[x, y] <= 0) continue;
-
-            // Dissipate
-            newValues[x, y] -= dissipationRate;
 
             // Spread to neighbors
             int[] dx = { 1, -1, 0, 0 };
@@ -61,6 +59,22 @@ public class GasGrid : MonoBehaviour
                 if (nx >= 0 && nx < width && ny >= 0 && ny < height)
                     newValues[nx, ny] = Mathf.Clamp01(newValues[nx, ny] + gasValues[x, y] * spreadRate);
             }
+        }
+
+        gasValues = newValues;
+    }
+    
+    private void Dissipate()
+    {
+        float[,] newValues = (float[,])gasValues.Clone();
+
+        for (int x = 0; x < width; x++)
+        for (int y = 0; y < height; y++)
+        {
+            if (gasValues[x, y] <= 0) continue;
+
+            // Dissipate
+            newValues[x, y] -= dissipationRate;
         }
 
         gasValues = newValues;
