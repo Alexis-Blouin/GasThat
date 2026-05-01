@@ -13,4 +13,18 @@ public class BulletWeapon : Weapon
     // {
     //     
     // }
+
+    public override void Shoot(Transform look, GasGrid gasGrid)
+    {
+        base.Shoot(look, gasGrid);
+        if (Physics.Raycast(look.position, look.TransformDirection(Vector3.forward), out var hit, Mathf.Infinity,
+                hitLayer))
+        {
+            Debug.Log("Hit player/enemy!");
+            if (hit.collider.gameObject.TryGetComponent<Enemy>(out var enemy))
+            {
+                enemy.GetHit();
+            }
+        }
+    }
 }

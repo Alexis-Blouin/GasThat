@@ -5,6 +5,7 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected GameObject particle;
     [SerializeField] protected Transform barrelTip;
     [SerializeField] protected float destroyTimer = 5.0f;
+    [SerializeField] protected LayerMask hitLayer;
 
     protected GameObject _currentParticle;
 
@@ -18,7 +19,7 @@ public abstract class Weapon : MonoBehaviour
         }
     }
 
-    public virtual void Shoot()
+    public virtual void Shoot(Transform look, GasGrid gasGrid = null)
     {
         _currentParticle = Instantiate(particle, barrelTip.position, barrelTip.rotation);
     }

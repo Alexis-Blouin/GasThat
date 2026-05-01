@@ -13,4 +13,15 @@ public class GasWeapon : Weapon
     // {
     //     
     // }
+
+    public override void Shoot(Transform look, GasGrid gasGrid)
+    {
+        base.Shoot(look, gasGrid);
+        if (Physics.Raycast(look.position, look.TransformDirection(Vector3.forward), out var groundHit, Mathf.Infinity,
+                hitLayer))
+        {
+            Debug.Log("Hit ground!");
+            gasGrid.AddGas(groundHit.point, 0.4f, radius: 1);
+        }
+    }
 }

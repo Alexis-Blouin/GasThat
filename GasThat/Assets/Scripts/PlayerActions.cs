@@ -32,27 +32,7 @@ public class PlayerActions : MonoBehaviour
     {
         if (context.performed)
         {
-            Debug.Log("Shoot!");
-            inHandWeapon.Shoot();
-            if (Physics.Raycast(look.position, look.TransformDirection(Vector3.forward), out var hit, Mathf.Infinity,
-                    hitLayer))
-            {
-                Debug.Log("Hit player/enemy!");
-                if (hit.collider.gameObject.TryGetComponent<Enemy>(out var enemy))
-                {
-                    enemy.GetHit();
-                }
-            }
-            else if (Physics.Raycast(look.position, look.TransformDirection(Vector3.forward), out var groundHit, Mathf.Infinity,
-                         groundLayer))
-            {
-                Debug.Log("Hit ground!");
-                gasGrid.AddGas(groundHit.point, 0.4f, radius: 1);
-            }
-            else
-            {
-                Debug.Log("No Hit!");
-            }
+            inHandWeapon.Shoot(look, gasGrid);
         }
         else if (context.canceled)
         {

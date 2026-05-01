@@ -3438,6 +3438,14 @@ PrefabInstance:
       propertyPath: gasGrid
       value: 
       objectReference: {fileID: 1347852850}
+    - target: {fileID: 1578607870638373971, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
+      propertyPath: hitLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864042883196909618, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
+      propertyPath: hitLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 5061376621305171770, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
       propertyPath: m_IsActive
       value: 0
