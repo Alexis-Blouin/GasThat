@@ -159,10 +159,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8be5144ca2136c644995cb07595d630b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GasWeapon
-  shootType: 2
   particle: {fileID: 32715313493307139, guid: de8acfe0a165f224faf04ebecd5d7751, type: 3}
   barrelTip: {fileID: 160097013692679401}
   destroyTimer: 5
+  hitLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  gasDelay: 0.5
+  cellColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &1829411048931549114
 GameObject:
   m_ObjectHideFlags: 0

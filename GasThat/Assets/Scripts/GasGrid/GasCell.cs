@@ -15,6 +15,9 @@ public class GasCell : MonoBehaviour
     void Update()
     {
         float gas = grid.GetGas(gridX, gridY);
+        var color = grid.GetCellColor(gridX, gridY);
+        var main = ps.main;
+        main.startColor = color;
         var emission = ps.emission;
         emission.rateOverTime = gas > 0.05f ? gas * 20f : 0f;
     }
