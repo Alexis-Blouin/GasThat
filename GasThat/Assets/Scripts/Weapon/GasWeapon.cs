@@ -2,26 +2,26 @@ using UnityEngine;
 
 public class GasWeapon : Weapon
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private float gasDelay = 0.5f;
+    
+    private float gasTimer = 0;
+    
+    protected override void Update()
     {
+        base.Update();
         
+        gasTimer += Time.deltaTime;
     }
 
-    // Update is called once per frame
-    // void Update()
-    // {
-    //     
-    // }
-
-    public override void Shoot(Transform look, GasGrid gasGrid)
+    public override void Fire(Transform look)
     {
-        base.Shoot(look, gasGrid);
-        if (Physics.Raycast(look.position, look.TransformDirection(Vector3.forward), out var groundHit, Mathf.Infinity,
-                hitLayer))
+        base.Fire(look);
+        if (gasTimer >= gasDelay)
         {
-            Debug.Log("Hit ground!");
-            gasGrid.AddGas(groundHit.point, 0.4f, radius: 1);
+            Vector3 gasPos = look.position + look.forward * 5f;
+            gasPos.y = 0;
+            GameManager.Instance.GasGrid.AddGas(gasPos, 0.4f, radius: 1);
+            gasTimer = 0;
         }
     }
 }

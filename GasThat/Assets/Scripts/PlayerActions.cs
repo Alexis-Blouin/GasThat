@@ -10,7 +10,8 @@ public class PlayerActions : MonoBehaviour
     private Weapon inHandWeapon;
     [SerializeField] private GameObject[] weapons;
     
-    [SerializeField] private GasGrid gasGrid;
+    private bool _isFiring = false;
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,17 +27,22 @@ public class PlayerActions : MonoBehaviour
     void Update()
     {
         Debug.DrawRay(look.position, look.TransformDirection(Vector3.forward) * 5, Color.yellow);
+        if (_isFiring)
+        {
+            inHandWeapon.Fire(look);
+        }
     }
 
     public void OnShoot(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            inHandWeapon.Shoot(look, gasGrid);
+            _isFiring = true;
         }
         else if (context.canceled)
         {
             inHandWeapon.Release();
+            _isFiring = false;
         }
     }
 

@@ -2,21 +2,15 @@ using UnityEngine;
 
 public class BulletWeapon : Weapon
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     // void Update()
     // {
     //     
     // }
 
-    public override void Shoot(Transform look, GasGrid gasGrid)
+    public override void Fire(Transform look)
     {
-        base.Shoot(look, gasGrid);
+        base.Fire(look);
         if (Physics.Raycast(look.position, look.TransformDirection(Vector3.forward), out var hit, Mathf.Infinity,
                 hitLayer))
         {

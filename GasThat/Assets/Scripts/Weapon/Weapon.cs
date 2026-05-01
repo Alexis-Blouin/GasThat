@@ -7,27 +7,27 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected float destroyTimer = 5.0f;
     [SerializeField] protected LayerMask hitLayer;
 
-    protected GameObject _currentParticle;
+    protected GameObject CurrentParticle;
 
-    // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
-        if (_currentParticle != null)
+        if (CurrentParticle != null)
         {
-            _currentParticle.transform.position = barrelTip.position;
-            _currentParticle.transform.rotation = barrelTip.rotation;
+            CurrentParticle.transform.position = barrelTip.position;
+            CurrentParticle.transform.rotation = barrelTip.rotation;
         }
     }
 
-    public virtual void Shoot(Transform look, GasGrid gasGrid = null)
+    public virtual void Fire(Transform look)
     {
-        _currentParticle = Instantiate(particle, barrelTip.position, barrelTip.rotation);
+        if (CurrentParticle == null)
+            CurrentParticle = Instantiate(particle, barrelTip.position, barrelTip.rotation);
     }
     
     public virtual void Release()
     {
-        Destroy(_currentParticle, destroyTimer);
-        _currentParticle.GetComponent<ParticleSystem>().Stop();
-        _currentParticle = null;
+        Destroy(CurrentParticle, destroyTimer);
+        CurrentParticle.GetComponent<ParticleSystem>().Stop();
+        CurrentParticle = null;
     }
 }

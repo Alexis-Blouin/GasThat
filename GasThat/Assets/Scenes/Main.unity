@@ -704,6 +704,71 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &367261536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 367261537}
+  - component: {fileID: 367261539}
+  - component: {fileID: 367261538}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &367261537
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367261536}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.11986, y: 0, z: 8.61966}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &367261538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367261536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1f29d23c9081046a553778d017bc0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GasGrid
+  width: 40
+  height: 40
+  cellSize: 1
+  originPosition: {x: 0, y: 0, z: 0}
+  spreadRate: 0.05
+  dissipationRate: 0.01
+  spreadInterval: 1
+  gasCellPrefab: {fileID: 5040712696869412821, guid: 8fe0a4297a85bec4babc249f337ff0e1, type: 3}
+--- !u!114 &367261539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367261536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 565125733b2c1ce4f8ac162214800501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
 --- !u!1 &385920215
 GameObject:
   m_ObjectHideFlags: 0
@@ -2347,17 +2412,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266951464}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1347852850 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5340540859678664254, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
-  m_PrefabInstance: {fileID: 6558963096727553681}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d1f29d23c9081046a553778d017bc0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GasGrid
 --- !u!1001 &1421153212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3437,7 +3491,7 @@ PrefabInstance:
     - target: {fileID: 1180496878760301065, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
       propertyPath: gasGrid
       value: 
-      objectReference: {fileID: 1347852850}
+      objectReference: {fileID: 0}
     - target: {fileID: 1578607870638373971, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
       propertyPath: hitLayer.m_Bits
       value: 64
@@ -3556,63 +3610,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fe0a4297a85bec4babc249f337ff0e1, type: 3}
---- !u!1001 &6558963096727553681
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6095628153357886094, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5.40706
-      objectReference: {fileID: 0}
-    - target: {fileID: 6095628153357886094, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6095628153357886094, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3.12459
-      objectReference: {fileID: 0}
-    - target: {fileID: 6095628153357886094, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6095628153357886094, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6095628153357886094, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6095628153357886094, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6095628153357886094, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6095628153357886094, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6095628153357886094, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7478462567988630315, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
-      propertyPath: m_Name
-      value: GasGrid
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9917665e048bf944ba225d7756514c7f, type: 3}
 --- !u!1001 &6972636084890105711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3686,4 +3683,4 @@ SceneRoots:
   - {fileID: 172621766}
   - {fileID: 6972636084890105711}
   - {fileID: 6018331269876470249}
-  - {fileID: 6558963096727553681}
+  - {fileID: 367261537}
