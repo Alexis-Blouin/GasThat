@@ -10,8 +10,9 @@ public class PlayerActions : MonoBehaviour
     private Weapon inHandWeapon;
     [SerializeField] private GameObject[] weapons;
     
-    private bool _isFiring = false;
-    
+    private bool isFiring = false;
+
+    [SerializeField] private Team team;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,7 +28,7 @@ public class PlayerActions : MonoBehaviour
     void Update()
     {
         Debug.DrawRay(look.position, look.TransformDirection(Vector3.forward) * 5, Color.yellow);
-        if (_isFiring)
+        if (isFiring)
         {
             inHandWeapon.Fire(look);
         }
@@ -37,12 +38,12 @@ public class PlayerActions : MonoBehaviour
     {
         if (context.performed)
         {
-            _isFiring = true;
+            isFiring = true;
         }
         else if (context.canceled)
         {
             inHandWeapon.Release();
-            _isFiring = false;
+            isFiring = false;
         }
     }
 
@@ -53,6 +54,10 @@ public class PlayerActions : MonoBehaviour
             if (inHandWeapon == weapons[0].GetComponent<Weapon>())
             {
                 inHandWeapon = weapons[1].GetComponent<Weapon>();
+                if(inHandWeapon is GasWeapon gasWeapon)
+                {
+                    gasWeapon.SetColor(team.color);
+                }
                 weapons[0].SetActive(false);
                 weapons[1].SetActive(true);
             }
