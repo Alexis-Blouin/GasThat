@@ -749,10 +749,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1f29d23c9081046a553778d017bc0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GasGrid
-  width: 40
-  height: 40
+  width: 10
+  height: 10
   cellSize: 1
-  originPosition: {x: 0, y: 0, z: 0}
+  originPosition: {x: 0, y: 0.001, z: 0}
   spreadRate: 0.05
   dissipationRate: 0.01
   spreadInterval: 1

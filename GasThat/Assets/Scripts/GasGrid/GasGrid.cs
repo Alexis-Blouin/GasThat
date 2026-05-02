@@ -15,6 +15,7 @@ public class GasGrid : MonoBehaviour
 
     private float[,] gasValues;
     private Color[,] cellColors;
+    private bool[,] claimedCells;
 
     private Dictionary<Color, int> colorCounts = new Dictionary<Color, int>();
     
@@ -24,6 +25,7 @@ public class GasGrid : MonoBehaviour
     {
         gasValues = new float[width, height];
         cellColors = new Color[width, height];
+        claimedCells = new bool[width, height];
         for (int x = 0; x < width; x++)
         for (int y = 0; y < height; y++)
         {
@@ -80,6 +82,12 @@ public class GasGrid : MonoBehaviour
 
             // Dissipate
             newValues[x, y] -= dissipationRate;
+            
+            // Claim cell when gas reaches 0
+            if (newValues[x, y] <= 0 && !claimedCells[x, y])
+            {
+                claimedCells[x, y] = true;
+            }
         }
 
         gasValues = newValues;
@@ -94,7 +102,7 @@ public class GasGrid : MonoBehaviour
 
     public Vector3 GridToWorld(int x, int y)
     {
-        return new Vector3(x * cellSize + originPosition.x, 0, y * cellSize + originPosition.z);
+        return new Vector3(x * cellSize + originPosition.x, originPosition.y, y * cellSize + originPosition.z);
     }
 
     public void AddGas(Vector3 worldPos, float amount, Color color, int radius = 2)
@@ -132,6 +140,7 @@ public class GasGrid : MonoBehaviour
 
     public float GetGas(int x, int y) => gasValues[x, y];
     public Color GetCellColor(int x, int y) => cellColors[x, y];
+    public bool IsCellClaimed(int x, int y) => claimedCells[x, y];
     public float GetGas(Vector3 worldPos)
     {
         var c = WorldToGrid(worldPos);
