@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GasGrid : MonoBehaviour
@@ -19,8 +20,10 @@ public class GasGrid : MonoBehaviour
     private Team emptyTeam;
 
     private Dictionary<Team, int> teamCounts = new Dictionary<Team, int>();
-    
+
     public GameObject gasCellPrefab;
+    
+    private UIManager UIManager;
 
     void Start()
     {
@@ -40,6 +43,8 @@ public class GasGrid : MonoBehaviour
             gasCell.gridX = x;
             gasCell.gridY = y;
         }
+        
+        UIManager = UIManager.Instance;
     }
     
     void Update()
@@ -132,6 +137,15 @@ public class GasGrid : MonoBehaviour
                 }
             }
         }
+        UpdateUI();
+    }
+
+    private void UpdateUI()
+    {
+        // TODO fix for each team, only red team currently displayed
+        var cellTotal = width * height;
+        var percentage = teamCounts.First().Value * 100 / (float)cellTotal;
+        UIManager.UpdateTerritory(percentage);
     }
 
     public void PrintTerritory()
