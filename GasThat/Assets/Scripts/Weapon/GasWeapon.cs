@@ -26,6 +26,9 @@ public class GasWeapon : Weapon
 
     public override void Fire(Transform look)
     {
+        if (currentMagCount <= 0)
+            return;
+        
         base.Fire(look);
         if (gasTimer >= gasDelay)
         {

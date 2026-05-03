@@ -10,6 +10,9 @@ public class BulletWeapon : Weapon
 
     public override void Fire(Transform look)
     {
+        if (currentMagCount <= 0)
+            return;
+        
         base.Fire(look);
         if (Physics.Raycast(look.position, look.TransformDirection(Vector3.forward), out var hit, Mathf.Infinity,
                 hitLayer))

@@ -19,7 +19,7 @@ public class GasGrid : MonoBehaviour
     private bool[,] claimedCells;
     private Team emptyTeam;
 
-    private Dictionary<Team, int> teamCounts = new Dictionary<Team, int>();
+    private Dictionary<Team, int> teamCounts = new();
 
     public GameObject gasCellPrefab;
     
@@ -142,10 +142,13 @@ public class GasGrid : MonoBehaviour
 
     private void UpdateUI()
     {
-        // TODO fix for each team, only red team currently displayed
-        var cellTotal = width * height;
-        var percentage = teamCounts.First().Value * 100 / (float)cellTotal;
-        UIManager.UpdateTerritory(percentage);
+        // TODO fix for each team, only one team currently displayed
+        if (teamCounts.Count > 0)
+        {
+            var cellTotal = width * height;
+            var percentage = teamCounts.First().Value * 100 / (float)cellTotal;
+            UIManager.UpdateTerritory(percentage);
+        }
     }
 
     public void PrintTerritory()
