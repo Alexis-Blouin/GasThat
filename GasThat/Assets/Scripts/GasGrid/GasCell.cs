@@ -24,22 +24,23 @@ public class GasCell : MonoBehaviour
 
     void Update()
     {
-        float gas = grid.GetGas(gridX, gridY);
-        var color = grid.GetCellColor(gridX, gridY);
+        var gas = grid.GetGas(gridX, gridY);
+        var team = grid.GetTeam(gridX, gridY);
+        
         var main = particle.main;
-        main.startColor = color;
+        main.startColor = team.color;
         var emission = particle.emission;
         emission.rateOverTime = gas > 0.05f ? gas * 20f : 0f;
-        
+    
         // Show texture when cell is claimed
-        bool isClaimed = grid.IsCellClaimed(gridX, gridY);
+        var isClaimed = grid.IsClaimed(gridX, gridY);
         if (isClaimed && meshRenderer != null)
         {
             if (!wasClaimedLastFrame)
             {
                 // Apply color to the claimed material
-                claimedMaterial.color = color;
-                meshRenderer.material = claimedMaterial;
+                claimedMaterial.color = team.color;
+                meshRenderer.material = team.claimedMaterial;
                 meshRenderer.enabled = true;
                 wasClaimedLastFrame = true;
             }

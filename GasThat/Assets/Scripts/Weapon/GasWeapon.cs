@@ -3,15 +3,13 @@ using UnityEngine;
 public class GasWeapon : Weapon
 {
     [SerializeField] private float gasDelay = 0.5f;
-    
-    private Color color;
-    
+
     private float gasTimer = 0;
 
     private void Start()
     {
-        var main = particle.GetComponent<ParticleSystem>().main;
-        main.startColor = color;
+        // var main = particle.GetComponent<ParticleSystem>().main;
+        // main.startColor = Team.color;
     }
     
     protected override void Update()
@@ -28,15 +26,20 @@ public class GasWeapon : Weapon
         {
             Vector3 gasPos = look.position + look.forward * 5f;
             gasPos.y = 0;
-            GameManager.Instance.GasGrid.AddGas(gasPos, 0.4f, color, radius: 1);
+            GameManager.Instance.GasGrid.AddGas(gasPos, 0.4f, Team, radius: 1);
             gasTimer = 0;
         }
     }
 
-    public void SetColor(Color c)
+    public override void SetTeam(Team t)
     {
-        color = c;
-        var main = particle.GetComponent<ParticleSystem>().main;
-        main.startColor = color;
+        Team = t;
+        particle = t.particle;
+
+        var ps = particle.GetComponent<ParticleSystem>();
+        var ren = particle.GetComponent<Renderer>();
+        ren.material = Team.gasMaterial;
+        var main = ps.main;
+        main.startColor = Team.color; // then set the color
     }
 }

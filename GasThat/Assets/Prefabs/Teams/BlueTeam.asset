@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Team
   teamName: Blue
   color: {r: 0, g: 0.5494207, b: 0.6698113, a: 1}
+  claimedMaterial: {fileID: 2100000, guid: 085afdb88967cd34e82a4cb3a80a1087, type: 2}
+  gasMaterial: {fileID: 2100000, guid: 520dfac872f1d7e44a42bd055c4e0ad2, type: 2}
+  particle: {fileID: 32715313493307139, guid: de8acfe0a165f224faf04ebecd5d7751, type: 3}

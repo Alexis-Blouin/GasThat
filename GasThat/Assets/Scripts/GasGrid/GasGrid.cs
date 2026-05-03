@@ -14,17 +14,22 @@ public class GasGrid : MonoBehaviour
     public float spreadInterval = 0.5f;
 
     private float[,] gasValues;
-    private Color[,] cellColors;
+    private Team[,] cellTeams;
     private bool[,] claimedCells;
+    private Team emptyTeam;
 
-    private Dictionary<Color, int> colorCounts = new Dictionary<Color, int>();
+    private Dictionary<Team, int> teamCounts = new Dictionary<Team, int>();
     
     public GameObject gasCellPrefab;
 
     void Start()
     {
         gasValues = new float[width, height];
-        cellColors = new Color[width, height];
+        cellTeams = new Team[width, height];
+        emptyTeam = ScriptableObject.CreateInstance<Team>();
+        for (int i = 0; i < width; i++)
+            for (int j = 0; j < height; j++)
+                cellTeams[i, j] = emptyTeam;
         claimedCells = new bool[width, height];
         for (int x = 0; x < width; x++)
         for (int y = 0; y < height; y++)
@@ -105,7 +110,7 @@ public class GasGrid : MonoBehaviour
         return new Vector3(x * cellSize + originPosition.x, originPosition.y, y * cellSize + originPosition.z);
     }
 
-    public void AddGas(Vector3 worldPos, float amount, Color color, int radius = 2)
+    public void AddGas(Vector3 worldPos, float amount, Team t, int radius = 2)
     {
         Vector2Int cell = WorldToGrid(worldPos);
         for (int x = -radius; x <= radius; x++)
@@ -115,15 +120,15 @@ public class GasGrid : MonoBehaviour
             if (tx >= 0 && tx < width && ty >= 0 && ty < height)
             {
                 gasValues[tx, ty] = Mathf.Clamp01(gasValues[tx, ty] + amount);
-                if (cellColors[tx, ty] != color)
+                if (cellTeams[tx, ty] != t)
                 {
-                    if(colorCounts.ContainsKey(cellColors[tx, ty]))
-                        colorCounts[cellColors[tx, ty]]--;
-                    cellColors[tx, ty] = color;
-                    if(colorCounts.ContainsKey(color))
-                        colorCounts[color]++;
+                    if(teamCounts.ContainsKey(cellTeams[tx, ty]))
+                        teamCounts[cellTeams[tx, ty]]--;
+                    cellTeams[tx, ty] = t;
+                    if(teamCounts.ContainsKey(t))
+                        teamCounts[t]++;
                     else
-                        colorCounts.Add(color, 1);
+                        teamCounts.Add(t, 1);
                 }
             }
         }
@@ -132,23 +137,23 @@ public class GasGrid : MonoBehaviour
     public void PrintTerritory()
     {
         var cellTotal = width * height;
-        foreach (var entry in colorCounts)
+        foreach (var entry in teamCounts)
         {
             Debug.Log(entry.Key + ": " + entry.Value + " / " + cellTotal);
         }
     }
 
     public float GetGas(int x, int y) => gasValues[x, y];
-    public Color GetCellColor(int x, int y) => cellColors[x, y];
-    public bool IsCellClaimed(int x, int y) => claimedCells[x, y];
+    public Team GetTeam(int x, int y) => cellTeams[x, y];
+    public bool IsClaimed(int x, int y) => claimedCells[x, y];
     public float GetGas(Vector3 worldPos)
     {
         var c = WorldToGrid(worldPos);
         return gasValues[c.x, c.y];
     }
-    public Color GetColor(Vector3 worldPos)
+    public Team GetTeam(Vector3 worldPos)
     {
         var c = WorldToGrid(worldPos);
-        return cellColors[c.x, c.y];
+        return cellTeams[c.x, c.y];
     }
 }

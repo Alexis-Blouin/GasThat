@@ -9,6 +9,8 @@ public abstract class Weapon : MonoBehaviour
 
     protected GameObject CurrentParticle;
 
+    protected Team Team;
+
     protected virtual void Update()
     {
         if (CurrentParticle != null)
@@ -29,5 +31,10 @@ public abstract class Weapon : MonoBehaviour
         Destroy(CurrentParticle, destroyTimer);
         CurrentParticle.GetComponent<ParticleSystem>().Stop();
         CurrentParticle = null;
+    }
+
+    public virtual void SetTeam(Team t)
+    {
+        Team = t;
     }
 }

@@ -56,7 +56,7 @@ public class PlayerActions : MonoBehaviour
                 inHandWeapon = weapons[1].GetComponent<Weapon>();
                 if(inHandWeapon is GasWeapon gasWeapon)
                 {
-                    gasWeapon.SetColor(team.color);
+                    gasWeapon.SetTeam(team);
                 }
                 weapons[0].SetActive(false);
                 weapons[1].SetActive(true);
