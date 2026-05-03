@@ -6,17 +6,22 @@ public class GasWeapon : Weapon
 
     private float gasTimer = 0;
 
-    private void Start()
-    {
-        // var main = particle.GetComponent<ParticleSystem>().main;
-        // main.startColor = Team.color;
-    }
+    // private void Start()
+    // {
+    //     // var main = particle.GetComponent<ParticleSystem>().main;
+    //     // main.startColor = Team.color;
+    // }
     
     protected override void Update()
     {
         base.Update();
         
         gasTimer += Time.deltaTime;
+
+        if (currentMagCount == 0)
+        {
+            CurrentParticleSystem.Stop();
+        }
     }
 
     public override void Fire(Transform look)

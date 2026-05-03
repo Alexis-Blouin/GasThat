@@ -54,10 +54,7 @@ public class PlayerActions : MonoBehaviour
             if (inHandWeapon == weapons[0].GetComponent<Weapon>())
             {
                 inHandWeapon = weapons[1].GetComponent<Weapon>();
-                if(inHandWeapon is GasWeapon gasWeapon)
-                {
-                    gasWeapon.SetTeam(team);
-                }
+                inHandWeapon.SetTeam(team);
                 weapons[0].SetActive(false);
                 weapons[1].SetActive(true);
             }
@@ -67,6 +64,14 @@ public class PlayerActions : MonoBehaviour
                 weapons[0].SetActive(true);
                 weapons[1].SetActive(false);
             }
+
+            if(inHandWeapon.didStart)
+                inHandWeapon.UpdateUI();
         }
+    }
+
+    public void OnReload(InputAction.CallbackContext context)
+    {
+        inHandWeapon.Reload();
     }
 }
