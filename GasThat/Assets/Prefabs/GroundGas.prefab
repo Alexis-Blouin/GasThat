@@ -4974,6 +4974,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GasCell
   gridX: 0
   gridY: 0
-  particle: {fileID: 7823594719476300044}
   planeMesh: {fileID: 8204037683714746075}
-  claimedMaterial: {fileID: 2100000, guid: 085afdb88967cd34e82a4cb3a80a1087, type: 2}

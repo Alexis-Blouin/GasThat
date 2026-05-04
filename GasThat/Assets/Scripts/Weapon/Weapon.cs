@@ -61,9 +61,12 @@ public abstract class Weapon : MonoBehaviour
     
     public virtual void Release()
     {
-        Destroy(CurrentParticle, destroyTimer);
-        CurrentParticleSystem.Stop();
-        CurrentParticle = null;
+        if(CurrentParticle != null)
+        {
+            CurrentParticleSystem.Stop();
+            Destroy(CurrentParticle, destroyTimer);
+            CurrentParticle = null;
+        }
     }
 
     public virtual void Reload()

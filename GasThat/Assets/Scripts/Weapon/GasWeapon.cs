@@ -14,14 +14,17 @@ public class GasWeapon : Weapon
     
     protected override void Update()
     {
-        base.Update();
+        if (CurrentParticle != null)
+		{
+        	base.Update();
         
-        gasTimer += Time.deltaTime;
+        	gasTimer += Time.deltaTime;
 
-        if (currentMagCount == 0)
-        {
-            CurrentParticleSystem.Stop();
-        }
+        	if (currentMagCount == 0)
+        	{
+            	CurrentParticleSystem.Stop();
+        	}
+		}
     }
 
     public override void Fire(Transform look)
