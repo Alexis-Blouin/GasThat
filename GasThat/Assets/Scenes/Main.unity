@@ -3245,6 +3245,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1180496878760301065, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
+      propertyPath: gasRechargeRateMultiplier
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1578607870638373971, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
+      propertyPath: rechargeRate
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1578607870638373971, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
+      propertyPath: baseRechargeRate
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8168538025336085924, guid: 98bf62f5e74d8d247ba5b04e878d772f, type: 3}
       propertyPath: m_Name
       value: player

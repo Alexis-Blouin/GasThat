@@ -61,7 +61,7 @@ public class GasGrid : MonoBehaviour
             var emission = particles[x, y].emission;
             emission.rateOverTime = 0f; // start with no emission
             meshRenderers[x, y] = cell.GetComponentInChildren<MeshRenderer>();
-            gasCell.planeMesh.localScale = new Vector3(cellSize / 5f, 1f, cellSize / 5f);
+            gasCell.planeMesh.localScale = new Vector3(cellSize / 10f, 1f, cellSize / 10f);
 
             if (meshRenderers[x, y] != null)
                 meshRenderers[x, y].enabled = false;
@@ -191,4 +191,19 @@ public class GasGrid : MonoBehaviour
     public float GetGas(int x, int y)  => gasValues[x, y];
     public Team  GetTeam(int x, int y) => cellTeams[x, y];
     public bool  IsClaimed(int x, int y) => claimedCells[x, y];
+
+    /// <summary>
+    /// Checks if a world position is on the grid and within the specified team's claimed territory
+    /// </summary>
+    public bool IsPlayerInOwnTerritory(Vector3 worldPos, Team playerTeam)
+    {
+        Vector2Int gridPos = WorldToGrid(worldPos);
+        
+        // Check if position is within grid bounds
+        if (gridPos.x < 0 || gridPos.x >= width || gridPos.y < 0 || gridPos.y >= height)
+            return false;
+        
+        // Check if cell is claimed and belongs to player's team
+        return IsClaimed(gridPos.x, gridPos.y) && GetTeam(gridPos.x, gridPos.y) == playerTeam;
+    }
 }

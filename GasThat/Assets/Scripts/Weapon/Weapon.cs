@@ -81,7 +81,7 @@ public abstract class Weapon : MonoBehaviour
         Team = t;
     }
 
-    public virtual void UpdateUI()
+    public void UpdateUI()
     {
         UIManager.UpdateAmmo(currentMagCount, magazineCapacity);
     }

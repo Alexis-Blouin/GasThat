@@ -3,14 +3,17 @@ using UnityEngine;
 public class GasWeapon : Weapon
 {
     [SerializeField] private float gasDelay = 0.5f;
+    [SerializeField] private float baseRechargeRate = 0.2f;
 
     private float gasTimer = 0;
+    private float rechargeTimer = 0;
+    private float currentRechargeRate;
 
-    // private void Start()
-    // {
-    //     // var main = particle.GetComponent<ParticleSystem>().main;
-    //     // main.startColor = Team.color;
-    // }
+    protected override void Start()
+    {
+        base.Start();
+        currentRechargeRate = baseRechargeRate;
+    }
     
     protected override void Update()
     {
@@ -25,6 +28,16 @@ public class GasWeapon : Weapon
             	CurrentParticleSystem.Stop();
         	}
 		}
+        else
+        {
+            rechargeTimer += Time.deltaTime;
+            if (rechargeTimer >= currentRechargeRate && currentMagCount < magazineCapacity)
+            {
+                currentMagCount++;
+                UpdateUI();
+                rechargeTimer = 0;
+            }
+        }
     }
 
     public override void Fire(Transform look)
@@ -52,5 +65,10 @@ public class GasWeapon : Weapon
         ren.material = Team.gasMaterial;
         var main = ps.main;
         main.startColor = Team.color; // then set the color
+    }
+
+    public void SetRechargeRate(float multiplier = 1.0f)
+    {
+        currentRechargeRate = baseRechargeRate * multiplier;
     }
 }

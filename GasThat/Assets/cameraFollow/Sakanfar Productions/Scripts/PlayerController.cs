@@ -41,6 +41,9 @@ namespace PlayerController // Or any other appropriate namespace
         // Movement state
         private bool isRunning;
         private float currentSpeed;
+        
+        // Grid position
+        
 
         void Start()
         {
