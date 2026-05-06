@@ -43,14 +43,15 @@ namespace PlayerController // Or any other appropriate namespace
         private bool isRunning;
         private float currentSpeed;
         
-        // Grid position
-        
+        // Animation
+        private Animator animator;
 
         void Start()
         {
             // Get required components
             col = GetComponent<CapsuleCollider>();
             rb = GetComponent<Rigidbody>();
+            animator = GetComponent<Animator>();
 
             // Create ground check if it doesn't exist
             if (groundCheck == null)
@@ -104,11 +105,13 @@ namespace PlayerController // Or any other appropriate namespace
         public void OnMove(InputAction.CallbackContext context)
         {
             targetInputVector = context.ReadValue<Vector2>();
+            animator.SetBool("IsMoving", targetInputVector != Vector2.zero);
         }
 
         public void OnRun(InputAction.CallbackContext context)
         {
             isRunning = context.performed;
+            animator.SetBool("Run", isRunning);
         }
         
         public void OnJump(InputAction.CallbackContext context)

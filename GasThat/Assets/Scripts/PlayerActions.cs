@@ -21,10 +21,14 @@ public class PlayerActions : MonoBehaviour
     [Header("ClaimedZoneModifiers")] [SerializeField]
     private float gasRechargeRateMultiplier = 0.5f;
     
+    // Animation
+    private Animator animator;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         gameManager = GameManager.Instance;
+        animator = GetComponent<Animator>();
         
         if (weapons.Length >= 1)
         {
@@ -62,6 +66,7 @@ public class PlayerActions : MonoBehaviour
         if (context.performed)
         {
             isFiring = true;
+            animator.SetTrigger("Fire");
         }
         else if (context.canceled)
         {
