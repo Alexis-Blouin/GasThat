@@ -17,6 +17,7 @@ namespace PlayerController // Or any other appropriate namespace
         [SerializeField] private Transform groundCheck;
         [SerializeField] private float groundDistance = 0.4f;
         [SerializeField] private LayerMask groundMask = 1;
+        [SerializeField] private float groundCheckYOffset = 0.0f;
 
         [Header("Movement Smoothing")]
         [SerializeField] private float accelerationTime = 0.1f;
@@ -56,7 +57,7 @@ namespace PlayerController // Or any other appropriate namespace
             {
                 GameObject groundCheckObj = new GameObject("GroundCheck");
                 groundCheckObj.transform.SetParent(transform);
-                groundCheckObj.transform.localPosition = new Vector3(0, -col.height / 2, 0);
+                groundCheckObj.transform.localPosition = new Vector3(0, groundCheckYOffset / 2, 0);
                 
                 groundCheck = groundCheckObj.transform;
             }
